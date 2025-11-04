@@ -98,62 +98,72 @@ app.post('/login', async(req, res) => {
 
 
 
-app.post('/reportStolenPc', upload.single('pc-image'), async(req, res) => {
-    let { pc_serial, pc_model, pc_brand, student_id } = req.body;
-    pc_serial = pc_serial.toLowerCase().trim();
-   
-    try {   
-            insert_query = `SELECT * FROM pcs WHERE user_id = $1 and serial = $2`;
-            insert_values=[student_id, pc_serial.toLowerCase()];
-            const result = await queryDB(insert_query, insert_values);
-            if (result) {
-
-                   try{
-                    insert_query = `SELECT pc_serial FROM lostpcs WHERE pc_serial = $1`
-                    insert_values = [pc_serial];
-                    const wasReported = await queryDB(insert_query, insert_values)
-                    if(wasReported){
-                     return res.status(400).json({ error: "The PC was reported before" });
-                    }
-                    else{
-                        try{
-                            let reportedDate = new Date();
-                            reportedDate = reportedDate.toISOString().split('T')[0];
-
-                            insert_query = `INSERT INTO lostpcs (pc_serial, reported_date) 
-                                            values ($1, $2)`
-                            insert_values = [pc_serial, reportedDate]
-                            await queryDB(insert_query, insert_values);
-                                     
-                            const pcData = {
-                                pcSerial:result.serial,
-                                pcModel:result.model,
-                                pcBrand:result.brand,
-                                studentId:result.user_id,
-                                pcImage:result.pic_url.split("\\public")[1],
-                                reportedDate:reportedDate
-                            }
-                            
-        
-                            io.emit('stolenPCReported', pcData);
-
-                           return res.send({ message: 'Report received' });
-                        }catch(error){
-                            return res.status(500).json({error: 'Internal server error'})
-                        }
-                    }
-                   }catch(error){
-                    return res.status(500).json({ error: 'Internal server error' });
-
-                   }
-               
-           } else {
-               return res.status(409).json({ error: 'The PC was not registered before.' });
-           }
-       } catch (error) {
-           return res.status(500).json({ error: 'Internal server error' });
-       }
-});
+app.post('/reportStolenPc', upload.single('pc-image'), async (req, res) => {
+    try {
+      // Log incoming request body and file
+      console.log("Received request body:", req.body);
+      console.log("Received file:", req.file);
+  
+      let { pc_serial, pc_model, pc_brand, student_id } = req.body;
+      pc_serial = pc_serial.toLowerCase().trim();
+      console.log("Processed PC Serial:", pc_serial);
+  
+      // Check if the PC exists for the user
+      const checkPcQuery = `SELECT * FROM pcs WHERE user_id = $1 AND serial = $2`;
+      const checkPcValues = [student_id, pc_serial];
+      console.log("Executing query:", checkPcQuery, "with values:", checkPcValues);
+  
+      const result = await queryDB(checkPcQuery, checkPcValues);
+  
+      if (result) {
+        console.log("PC found for the user:", result);
+  
+        // Check if the PC has already been reported
+        const checkLostQuery = `SELECT pc_serial FROM lostpcs WHERE pc_serial = $1`;
+        const checkLostValues = [pc_serial];
+        console.log("Executing query:", checkLostQuery, "with values:", checkLostValues);
+  
+        const wasReported = await queryDB(checkLostQuery, checkLostValues);
+        if (wasReported) {
+          console.log("PC was already reported:", wasReported);
+          return res.status(400).json({ error: "The PC was reported before" });
+        } else {
+          console.log("PC is not reported yet, proceeding to report.");
+  
+          let reportedDate = new Date();
+          reportedDate = reportedDate.toISOString().split('T')[0];
+          console.log("Generated reported date:", reportedDate);
+  
+          const reportPcQuery = `INSERT INTO lostpcs (pc_serial, reported_date) VALUES ($1, $2)`;
+          const reportPcValues = [pc_serial, reportedDate];
+          console.log("Executing query:", reportPcQuery, "with values:", reportPcValues);
+  
+          await queryDB(reportPcQuery, reportPcValues);
+  
+          const pcData = {
+            pcSerial: result.serial,
+            pcModel: result.model,
+            pcBrand: result.brand,
+            studentId: result.user_id,
+            pcImage: result.pic_url.split("\\public")[1],
+            reportedDate: reportedDate,
+          };
+  
+          console.log("Emitting socket event with data:", pcData);
+          io.emit('stolenPCReported', pcData);
+  
+          return res.send({ message: 'Report received' });
+        }
+      } else {
+        console.log("No PC found for the provided user ID and serial.");
+        return res.status(409).json({ error: 'The PC was not registered before.' });
+      }
+    } catch (error) {
+      console.error("Error occurred in /reportStolenPc route:", error);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 
 server.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);

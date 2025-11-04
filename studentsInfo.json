@@ -5,7 +5,8 @@
         "department": "Computer Science",
         "year": "3rd",
         "email": "henok.getahun@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/2342/16",
@@ -13,7 +14,8 @@
         "department": "Mathematics",
         "year": "2nd",
         "email": "marta.tesfaye@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/6865/17",
@@ -21,7 +23,8 @@
         "department": "Physics",
         "year": "1st",
         "email": "samuel.abebe@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/3423/15",
@@ -29,7 +32,8 @@
         "department": "Biology",
         "year": "4th",
         "email": "amina.mohammed@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/0300/15",
@@ -37,7 +41,8 @@
         "department": "Chemistry",
         "year": "3rd",
         "email": "tadesse.kebede@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/5136/16",
@@ -45,23 +50,26 @@
         "department": "Engineering",
         "year": "2nd",
         "email": "selamawit.biruk@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/3243/15",
         "full_name": "Elias Hailu",
         "department": "History",
-        "year": "3st",
+        "year": "3rd",
         "email": "elias.hailu@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/2345/16",
         "full_name": "Fikirte Alemayehu",
         "department": "Literature",
-        "year": "2th",
+        "year": "2nd",
         "email": "fikirte.alemayehu@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251989012345"
     },
     {
         "id": "ugr/2346/15",
@@ -69,7 +77,8 @@
         "department": "Philosophy",
         "year": "3rd",
         "email": "yared.tesfaye@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     },
     {
         "id": "ugr/3764/16",
@@ -77,6 +86,7 @@
         "department": "Art",
         "year": "2nd",
         "email": "hana.gebremedhin@example.com",
-        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60"
+        "pic_url": "https://plus.unsplash.com/premium_photo-1606767261342-6c7b8c39c2ed?w=500&auto=format&fit=crop&q=60",
+        "phone_no": "+251977616186"
     }
 ]
